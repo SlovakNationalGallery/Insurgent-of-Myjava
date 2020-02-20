@@ -7,8 +7,9 @@ import Finale from '../components/Finale.jsx';
 class Finish extends React.Component {
   static async getInitialProps({ req, res, query: { id } }) {
     const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+    const headers = req ? { Authorization: req.headers.authorization } : {}
 
-    const request = await fetch(`${baseUrl}/api/${id}`);
+    const request = await fetch(`${baseUrl}/api/${id}`, { headers });
 
     const savedInsurgent = await request.json();
 

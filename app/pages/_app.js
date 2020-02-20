@@ -18,11 +18,12 @@ class Insurgent extends App {
     const baseUrl = ctx.req
       ? `${ctx.req.protocol}://${ctx.req.get('Host')}`
       : '';
+    const headers = ctx.req ? { Authorization: ctx.req.headers.authorization } : {}
 
     const state = ctx.store.getState();
 
     if (!state.data.loaded) {
-      const data = await fetch(`${baseUrl}/data`);
+      const data = await fetch(`${baseUrl}/data`, { headers });
 
       ctx.store.dispatch({
         type: DATA.LOADED,

@@ -6,8 +6,9 @@ import GalleryList from '../components/GalleryList.jsx';
 class Gallery extends React.Component {
   static async getInitialProps({ req }) {
     const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+    const headers = req ? { Authorization: req.headers.authorization } : {}
 
-    const request = await fetch(`${baseUrl}/api/`);
+    const request = await fetch(`${baseUrl}/api/`, { headers });
 
     const items = await request.json();
 

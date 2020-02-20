@@ -17,6 +17,6 @@ services:
     volumes:
       - ./shots:/shots:Z
   db:
-    image: mongo
+    image: mongo:4.0.6
     volumes:
       - ./db:/data/db:Z

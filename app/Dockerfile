@@ -1,4 +1,4 @@
-FROM node:current-slim
+FROM node:11.10.1-slim
 
 RUN ln -fs /usr/share/zoneinfo/Europe/Madrid /etc/localtime
 

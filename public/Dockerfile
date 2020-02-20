@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:11.11.0-alpine
 
 RUN ln -fs /usr/share/zoneinfo/Europe/Madrid /etc/localtime
 
